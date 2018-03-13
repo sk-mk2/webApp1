@@ -2,6 +2,7 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const views = require('koa-views');
 const path = require('path');
+const test = require('./routes/test.js');
 
 const app = new Koa();
 app.use(views(path.join(__dirname,'views'), { map: {html: 'nunjucks'}}));
@@ -11,14 +12,25 @@ router.get('/index', async (ctx) => {
     await ctx.render('index.html');
 });
 
+router.get('/chat', async (ctx) => {
+});
 
-router.get('/test',(ctx, next) => {
-    ctx.body ='test';
+router.post('/chat', async (ctx) => {
+});
+
+router.get('/test', (ctx) => {
+    test(ctx);
 });
 
 
 
 app.use(router.routes());
 
-app.listen(3000);
+const process = {
+    env:{
+        PORT:''
+    }
+};
+
+app.listen(process.env.PORT || 3000);
 
