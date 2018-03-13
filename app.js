@@ -16,6 +16,8 @@ router.get('/test',(ctx, next) => {
     ctx.body ='test';
 });
 
+
+
 app.use(router.routes());
 
 app.listen(3000);

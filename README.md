@@ -6,5 +6,5 @@
 
 - 用いるフレームワーク
     - Koa.js
-    - Vue.js
     - Bootstrap
+    - Jinja2
