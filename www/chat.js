@@ -2,12 +2,14 @@
     "use strict";
 
     document.addEventListener("DOMContentLoaded", initVue);
+
     function initVue(){
+
         const app = new Vue({
             el:'#app',
             data:{
                 messages: [
-                {text: 'Chat'}
+                {text: 'ここにメッセージが表示される'}
                 ],
                 str:"" 
             },
@@ -21,7 +23,7 @@
                     }
                     app.str = "";
                 },
-                async reload(){
+                async load(){
                     const res = await axios.get('/chatDb');
                     const messageArray = res.data.message;
                     for(let mes of messageArray) {
@@ -30,5 +32,7 @@
                 }
             }
         });
+        app.load();
+
     }
 }).bind(null)();

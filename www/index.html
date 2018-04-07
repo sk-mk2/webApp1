@@ -11,11 +11,10 @@
     <body>
         <div class="container">
             <div class="alert alert-primary" role="alert">
-                Hello,World!
+                Hello!
             </div>
 
             <div id="app">
-
                 <div class="form-group row">
                     <div class="col-sm-7">
                         <input type="text" class="form-control" v-model="str">
@@ -27,13 +26,7 @@
                 <li v-for="message in messages">
                     {{ message.text }}
                 </li>
-                <div class="col-sm-3 offset-sm-2">
-                    <button type="submit" class="btn btn-primary" v-on:Click="reload">更新</button>
-                </div>
             </div>
-
-
-
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
