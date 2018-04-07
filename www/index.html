@@ -7,11 +7,12 @@
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
         <script type="text/javascript" src="./chat.js"></script>
+        <script type="text/javascript" src="./address.js"></script>
     </head>
     <body>
         <div class="container">
             <div class="alert alert-primary" role="alert">
-                Hello!
+                ひとりでチャット
             </div>
 
             <div id="app">
@@ -23,9 +24,36 @@
                         <button type="submit" class="btn btn-primary" v-on:Click="chat">送信</button>
                     </div>
                 </div>
-                <li v-for="message in messages">
+                ここに自分のメッセージが表示される
+                <li v-for="message in myMessages">
                     {{ message.text }}
                 </li>
+                ここに相手のメッセージが表示される
+                <li v-for="message in aiMessages">
+                    {{ message.text }}
+                </li>
+            </div>
+        </div>
+        <div class="container">
+            <div class="alert alert-primary" role="alert">
+                    郵便番号から住所取得
+            </div>
+
+            <div id="app2">
+                <div class="form-group row">
+                    <div class="col-sm-2">
+                        郵便番号
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="number" placeholder="７桁の数字で入力してください" class="form-control" v-model="postalCode">
+                    </div>
+                    <div class= "offset-sm-2">
+                        <button type="submit" class="btn btn-primary" v-on:Click="search">検索</button>
+                    </div>
+                </div>
+                <div>
+                    {{address}}
+                </div>
             </div>
         </div>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
