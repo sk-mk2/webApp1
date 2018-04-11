@@ -18,15 +18,10 @@
 
             <div id="app">
                 今まで送られてきたメッセージ
-                <!--
-                <li v-for="message in historyMessages">
-                    {{ message.text }}
-                </li>
-                -->
                 <message-item v-for="message in historyMessages" v-bind:message="message"></message-item>
                 <div class="form-group row">
                     <div class="col-sm-7">
-                        <input type="text" class="form-control" v-model="str">
+                        <input type="text" class="form-control" v-model="str" v-on:keyup.enter="chat">
                     </div>
                     <div class="col-sm-3 offset-sm-2">
                         <button type="submit" class="btn btn-primary" v-on:Click="chat">送信</button>

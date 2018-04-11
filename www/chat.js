@@ -14,18 +14,14 @@
             methods: {
                 async chat(){
                     if(app.str !== "") {
-                        app.myMessages.push({text: app.str});
+                        const mess = app.str;
+                        app.str = "";
+                        app.myMessages.push({text: mess});
                         await axios.post('/chatDb', {
-                            message: app.str
+                            message: mess
                         });
-                        const res = await axios.get('/talk',{
-                            params: {
-                                text: app.str
-                            }
-                        });   
-                        app.aiMessages.push({text: res.data});
+                        app.aiMessages.push({text: await talkAI(mess)});
                     }
-                    app.str = "";
                 },
                 async load(){
                     const res = await axios.get('/chatDb');
@@ -33,9 +29,18 @@
                     for(let mes of messageArray) {
                         app.historyMessages.push({text: mes});    
                     }
-                }
+                },
+
             }
         });
         app.load();
+    }
+    async function talkAI(mess){
+        const res = await axios.get('/talk',{
+            params: {
+                text: mess
+            }
+        });   
+        return res.data;
     }
 }).bind(null)();
