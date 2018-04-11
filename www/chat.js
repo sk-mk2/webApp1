@@ -11,6 +11,13 @@
                 historyMessages: [],
                 str:"" 
             },
+            created: async()=>{
+                const res = await axios.get('/chatDb');
+                const messageArray = res.data.message;
+                for(let mes of messageArray) {
+                    app.historyMessages.push({text: mes});    
+                }
+            },
             methods: {
                 async chat(){
                     if(app.str !== "") {
@@ -22,18 +29,9 @@
                         });
                         app.aiMessages.push({text: await talkAI(mess)});
                     }
-                },
-                async load(){
-                    const res = await axios.get('/chatDb');
-                    const messageArray = res.data.message;
-                    for(let mes of messageArray) {
-                        app.historyMessages.push({text: mes});    
-                    }
-                },
-
+                }
             }
         });
-        app.load();
     }
     async function talkAI(mess){
         const res = await axios.get('/talk',{
