@@ -2,6 +2,7 @@
     "use strict";
     document.addEventListener("DOMContentLoaded", initVue);
     function initVue(){
+
         const app = new Vue({
             el:'#app',
             data:{

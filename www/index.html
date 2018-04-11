@@ -8,6 +8,7 @@
         <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
         <script type="text/javascript" src="./chat.js"></script>
         <script type="text/javascript" src="./address.js"></script>
+        <script type="text/javascript" src="./component.js"></script>
     </head>
     <body>
         <div class="container">
@@ -17,9 +18,12 @@
 
             <div id="app">
                 今まで送られてきたメッセージ
+                <!--
                 <li v-for="message in historyMessages">
                     {{ message.text }}
                 </li>
+                -->
+                <message-item v-for="message in historyMessages" v-bind:message="message"></message-item>
                 <div class="form-group row">
                     <div class="col-sm-7">
                         <input type="text" class="form-control" v-model="str">
@@ -31,15 +35,11 @@
                 <div class="row">
                     <div class="col-sm-6">
                         ここに自分のメッセージが表示される
-                        <li v-for="message in myMessages">
-                            {{ message.text }}
-                        </li>
+                <message-item v-for="message in myMessages" v-bind:message="message"></message-item>
                     </div>
                     <div class="col-sm-6">
                         ここに相手のメッセージが表示される
-                        <li v-for="message in aiMessages">
-                            {{ message.text }}
-                        </li>
+                <message-item v-for="message in aiMessages" v-bind:message="message"></message-item>
                     </div>
                 </div>
             </div>
