@@ -16,6 +16,10 @@
             </div>
 
             <div id="app">
+                今まで送られてきたメッセージ
+                <li v-for="message in historyMessages">
+                    {{ message.text }}
+                </li>
                 <div class="form-group row">
                     <div class="col-sm-7">
                         <input type="text" class="form-control" v-model="str">
@@ -24,41 +28,45 @@
                         <button type="submit" class="btn btn-primary" v-on:Click="chat">送信</button>
                     </div>
                 </div>
-                ここに自分のメッセージが表示される
-                <li v-for="message in myMessages">
-                    {{ message.text }}
-                </li>
-                ここに相手のメッセージが表示される
-                <li v-for="message in aiMessages">
-                    {{ message.text }}
-                </li>
-            </div>
-        </div>
-        <div class="container">
-            <div class="alert alert-primary" role="alert">
-                    郵便番号から住所取得
-            </div>
-
-            <div id="app2">
-                <div class="form-group row">
-                    <div class="col-sm-2">
-                        郵便番号
+                <div class="row">
+                    <div class="col-sm-6">
+                        ここに自分のメッセージが表示される
+                        <li v-for="message in myMessages">
+                            {{ message.text }}
+                        </li>
                     </div>
                     <div class="col-sm-6">
-                        <input type="number" placeholder="７桁の数字で入力してください" class="form-control" v-model="postalCode">
+                        ここに相手のメッセージが表示される
+                        <li v-for="message in aiMessages">
+                            {{ message.text }}
+                        </li>
                     </div>
-                    <div class= "offset-sm-2">
-                        <button type="submit" class="btn btn-primary" v-on:Click="search">検索</button>
-                    </div>
-                </div>
-                <div>
-                    {{address}}
                 </div>
             </div>
-        </div>
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+                <div class="alert alert-primary" role="alert">
+                    郵便番号から住所取得
+                </div>
+
+                <div id="app2">
+                    <div class="form-group row">
+                        <div class="col-sm-2">
+                            郵便番号
+                        </div>
+                        <div class="col-sm-6">
+                            <input type="number" placeholder="７桁の数字で入力してください" class="form-control" v-model="postalCode">
+                        </div>
+                        <div class= "offset-sm-2">
+                            <button type="submit" class="btn btn-primary" v-on:Click="search">検索</button>
+                        </div>
+                    </div>
+                    <div>
+                        {{address}}
+                    </div>
+                </div>
+            </div>
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 
 </html>

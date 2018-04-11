@@ -11,7 +11,7 @@
             methods: {
                 async search(){
                     if(app.postalCode.length !== 7){
-                        app.address = '7桁で入力';
+                        app.address = '7桁で入力してください';
                         return;
                     }
                     const res = await axios.get('http://api.zipaddress.net/',{

@@ -7,6 +7,7 @@
             data:{
                 myMessages: [],
                 aiMessages: [],
+                historyMessages: [],
                 str:"" 
             },
             methods: {
@@ -29,7 +30,7 @@
                     const res = await axios.get('/chatDb');
                     const messageArray = res.data.message;
                     for(let mes of messageArray) {
-                        app.myMessages.push({text: mes});    
+                        app.historyMessages.push({text: mes});    
                     }
                 }
             }
